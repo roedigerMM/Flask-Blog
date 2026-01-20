@@ -19,7 +19,8 @@ def fetch_post_by_id(post_id):
 def index():
     with open('blog_posts.json', 'r') as handle:
         blog_posts = json.load(handle)
-    return render_template('index.html', posts=blog_posts)
+    sorted_posts = sorted(blog_posts, key=lambda x: x['id'], reverse=True)
+    return render_template('index.html', posts=sorted_posts)
 
 
 @app.route('/add', methods=['GET', 'POST'])
