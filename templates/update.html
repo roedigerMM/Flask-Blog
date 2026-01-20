@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Post</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        form {
+            background-color: #FFF;
+            border: 1px solid #DDD;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #CCC;
+            font-size: 14px;
+        }
+
+        textarea {
+            min-height: 120px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1f6391;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Update Blog Post</h1>
+
+<form method="POST">
+
+    <label>Post Title</label>
+    <input type="text" name="title" value="{{ post.title }}" required>
+
+    <label>Author Name</label>
+    <input type="text" name="author" value="{{ post.author }}" required>
+
+    <label>Post Content</label>
+    <textarea name="content" required>{{ post.content }}</textarea>
+
+    <button type="submit">Update Post</button>
+
+</form>
+
+</body>
+</html>

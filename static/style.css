@@ -25,3 +25,34 @@ h1 {
 .post p {
     margin: 10px 0;
 }
+
+.delete-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background-color: #c0392b;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.delete-link:hover {
+    background-color: #992d22;
+}
+
+.update-link {
+    display: inline-block;
+    margin-top: 10px;
+    margin-right: 10px;
+    padding: 6px 12px;
+    background-color: #2980b9;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.update-link:hover {
+    background-color: #1f6391;
+}
