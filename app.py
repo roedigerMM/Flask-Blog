@@ -46,7 +46,8 @@ def add():
             "id": new_id,
             "author": author,
             "title": title,
-            "content": content
+            "content": content,
+            "likes": 0
         }
 
         # Append new post
@@ -109,6 +110,27 @@ def update(post_id):
 
     # GET request → show update form
     return render_template('update.html', post=post)
+
+
+@app.route('/like/<int:id>')
+def like(id):
+
+    # Load posts
+    with open('blog_posts.json', 'r') as handle:
+        posts = json.load(handle)
+
+    # Find matching post and increment likes
+    for post in posts:
+        if post['id'] == id:
+            post['likes'] += 1
+            break
+
+    # Save updated file
+    with open('blog_posts.json', 'w') as handle:
+        json.dump(posts, handle, indent=4)
+
+    # Redirect back home
+    return redirect(url_for('index'))
 
 
 if __name__ == '__main__':
